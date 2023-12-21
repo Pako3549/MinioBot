@@ -384,6 +384,7 @@ void rickroll(){
 <h1> Setup </h1>
 In <code>setup()</code> sensors and pins get initialized with certain parameters.
 
+
 ```C++
 ///////////////////////////////////////////////////////////////////
 //-- Setup ------------------------------------------------------//
@@ -401,8 +402,8 @@ void setup() {
 }
 ```
 <h1> Loop </h1>
-Every time <code> Loop() </code> gets executed, the variable <em> message </em>, (wich contains the message that the user sent) passes through the switch, if bluetooth is avaible; certain chars can trigger cases of the switch and in these are called the functions that have been declared earlier.
-It's important to say that this function is the core of this code: without it, MinioBot can't do a thing (except for the setup initializations).
+Every time the function <code>Loop()</code> gets executed, the variable <em> message </em> (wich contains the message that the user sent) passes through the switch, if bluetooth is avaible; certain chars can trigger cases of the switch and in these are called the functions that have been declared earlier.
+It's important to say that the <code>Loop()</code> function is the core of this code: without it, MinioBot can't do a thing (except for the setup initializations).
 
 ```C++
 ///////////////////////////////////////////////////////////////////
