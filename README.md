@@ -381,3 +381,76 @@ void rickroll(){
   }
 }
 ```
+<h1> Setup </h1>
+In <code>setup()</code> sensors and pins get initialized with certain parameters.
+
+```C++
+///////////////////////////////////////////////////////////////////
+//-- Setup ------------------------------------------------------//
+///////////////////////////////////////////////////////////////////
+
+void setup() {
+  pinMode(Piezo, OUTPUT); // pin 13 gets initialized as "OUTPUT", because a Buzzer playing "outputs" sounds
+  Serial.begin(9600); // sets serial communication between digital pin at 9600 baud rate
+  bluetooth.begin(9600); // sets serial communication beetween HC-06 and user's device at 9600 baud rate
+  Servo_6.attach(RightArm);
+  Servo_7.attach(LeftArm); // initializes RightArm and LeftArm using a function from <Servo.h>
+  Otto.init(LeftLeg, RightLeg, LeftFoot, RightFoot, true, Piezo);  
+  startArms(); // sets arms in a neutral position
+  Otto.sing(S_connection); // makes the Buzzer play the connection sound (beep)
+}
+```
+<h1> Loop </h1>
+Every time <code> Loop() </code> gets executed, the variable <em> message </em>, (wich contains the message that the user sent) passes through the switch, if bluetooth is avaible; certain chars can trigger cases of the switch and in these are called the functions that have been declared earlier.
+It's important to say that this function is the core of this code: without it, MinioBot can't do a thing (except for the setup initializations).
+
+```C++
+///////////////////////////////////////////////////////////////////
+//-- Principal Loop ---------------------------------------------//
+///////////////////////////////////////////////////////////////////
+void loop(){
+  Serial.println("Start"); // to notice, using the serial monitor, when the loop() function gets executed
+  if (bluetooth.available()) {
+    message = char(bluetooth.read()); // the data memorized in the variable "message" gets pverwritten with the char that the user sent using Bluetooth
+    Serial.println("message="); 
+    Serial.println(message); // prints what's contained in the variable "message"
+    switch(message)
+    {
+      case 'a':
+          move_RigthArm();
+          break;
+      case 'b':
+          move_LeftArm();
+          break;
+      case 'c':
+          bothArms();
+          break;
+     case 'f':
+          fly();
+          break;
+     case 'g':
+          walkForward = !walkForward;
+          walkForward_si();
+          break;
+     case 'i':
+          HappyBirthday();
+          break;     
+     case 'l':
+          walkBackwards_si();
+          break;
+     case 'p':
+          MerryChristmas();
+          break;
+     case 'n':
+          TurnLeft();
+          break;
+     case 'o':
+          TurnRight();
+          break;
+     case 'r':
+          rickroll();
+          break;
+    }
+  }
+}
+```
