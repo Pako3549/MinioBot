@@ -183,7 +183,7 @@ void walkForward_si(){
 
 void walkBackwards_si(){
   while(walkBackwards = true){
-    Otto.walk(1, 750, -1);
+    Otto.walk(1, 1000, -1);
     message = char(bluetooth.read());
        if (message=='h'){
        walkBackwards = false;
@@ -364,6 +364,7 @@ void setup() {
   Otto.init(LeftLeg, RightLeg, LeftFoot, RightFoot, true, Piezo); 
   startArms();
   Otto.sing(S_connection); 
+  Otto.home();
 }
 
 ///////////////////////////////////////////////////////////////////
