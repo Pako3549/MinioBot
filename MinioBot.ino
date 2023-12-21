@@ -131,12 +131,9 @@ int txPin = 12;
 int i = 0;
 SoftwareSerial bluetooth(rxPin, txPin);
 char message;
-unsigned long interval = 500; //numero  di millesecondi per far muovere contemporaneamente
-unsigned long currentMillis;
-unsigned long previousMillis;
 
 ///////////////////////////////////////////////////////////////////
-//-- Movements --------------------------------------------------//
+//-- MinioBot All Moves -----------------------------------------//
 ///////////////////////////////////////////////////////////////////
 
 void startArms(){
@@ -201,9 +198,21 @@ void TurnLeft(){
 void TurnRight(){
   Otto.turn(5, 750, -1);
 }
+void fly(){
+  for (i=0; i<10;i++){
+    Servo_6.write(90) ; delay(100);
+    Servo_7.write(90); delay(100);
+    Servo_6.write(0) ; delay(100);
+    Servo_7.write(180); delay(45);
+    message = char(bluetooth.read());
+    if (message=='0'){
+      break;
+    }
+  }
+}
 
 ///////////////////////////////////////////////////////////////////
-//-- Songs ------------------------------------------------------//
+//-- Melodies ---------------------------------------------------//
 ///////////////////////////////////////////////////////////////////
 
 void HappyBirthday(){
@@ -355,14 +364,12 @@ void setup() {
   Otto.init(LeftLeg, RightLeg, LeftFoot, RightFoot, true, Piezo); 
   startArms();
   Otto.sing(S_connection); 
-  Otto.home();
 }
 
 ///////////////////////////////////////////////////////////////////
 //-- Principal Loop ---------------------------------------------//
 ///////////////////////////////////////////////////////////////////
 void loop(){
-  currentMillis = millis();
   Serial.println("Inizio");
   if (bluetooth.available()) {
     message = char(bluetooth.read());
@@ -371,32 +378,18 @@ void loop(){
     switch(message)
     {
       case 'a':
-        muoviRigthArm();
-        break;
-      case 'b':
-        muoviLeftArm();
-        break;
-      case 'c':
-        bothArms();
-        break;
-     case 'e': 
-        break;
-     case 'f':
-      for (i=0; i<10;i++){
-           Servo_6.write(90) ; delay(100);
-           Servo_7.write(90); delay(100);
-           Servo_6.write(0) ; delay(100);
-           Servo_7.write(180); delay(45);
-           message = char(bluetooth.read());
-           if (message=='0'){
-             break;
-           }
-          }
+          move_RigthArm();
           break;
-     case '0':
-          i=1;
-          Servo_6.write(0);
-          Servo_7.write(180);
+      case 'b':
+          move_LeftArm();
+          break;
+      case 'c':
+          bothArms();
+          break;
+     case 'e': 
+          break;
+     case 'f':
+          fly();
           break;
      case 'g':
           walkForward = !walkForward;
@@ -419,6 +412,7 @@ void loop(){
           break;
      case 'r':
           rickroll();
+          break;
     }
   }
 }
