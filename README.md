@@ -1,5 +1,9 @@
-# MinioBot
+<h1> MinioBot </h1>
+<h2> How to run it </h2>
 To make this code work, you have to install the <a href="https://github.com/OttoDIY/OttoDIYLib"><span style="color:blue"><Otto.h></span></a> library.
+After installing the zip file, implement it in Arduino IDE (Sketches --> Include Library --> Include Library from .zip file).
+
+In the end, open the .ino file: when you'll open it, arduino will ask you to create a dedicated folder, obviously allow it.
 <h1> Libraries, Variables, Macros and Servos </h1>
 There've been included 3 libreries:
 
@@ -120,6 +124,10 @@ There are two main <strong> #define </strong> sections:
 #define Buzzer 13
 #define RightArm 6 // Looking MinioBot from the front
 #define LeftArm 7 // Looking MinioBot from the front
+Servo Servo_6; /* RightArm */
+Servo Servo_7; /* LeftArm */
+Servo Servo_5; /* RightFoot */
+Servo Servo_4; /* LeftFoot */
 ```
 Also there are many variables tied to many important functions. They are:
 ```C++
