@@ -407,6 +407,7 @@ void setup() {
   Otto.init(LeftLeg, RightLeg, LeftFoot, RightFoot, true, Piezo);  
   startArms(); // sets arms in a neutral position
   Otto.sing(S_connection); // makes the Buzzer play the connection sound (beep)
+  Otto.home(); // sets legs and foots in a neutral position
 }
 ```
 <h1> Loop </h1>
