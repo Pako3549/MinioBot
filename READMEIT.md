@@ -112,22 +112,22 @@ Ci sono due sezioni principali di <strong> #define </strong>:
 #define NOTE_DS8 4978
 #define REST      0
 ```
-- <em> Defining Servos and others </em> : in this section every servo and sensor has been defined.  
+- <em> Defining Servos and others </em> : in questa sezione viene definito ogni servo e sensore.
 ```C++
 ///////////////////////////////////////////////////////////////////
 //-- Defining servos and others ---------------------------------//
 ///////////////////////////////////////////////////////////////////
-#define LeftLeg 2 // Looking MinioBot from the front
-#define RightLeg 3 // Looking MinioBot from the front
-#define LeftFoot 4 // Looking MinioBot from the front
-#define RightFoot 5 // Looking MinioBot from the front
+#define LeftLeg 2 // Guardando MinioBot da davanti
+#define RightLeg 3 // Guardando MinioBot da davanti
+#define LeftFoot 4 // Guardando MinioBot da davanti
+#define RightFoot 5 // Guardando MinioBot da davanti
 #define Buzzer 13
-#define RightArm 6 // Looking MinioBot from the front
-#define LeftArm 7 // Looking MinioBot from the front
-Servo Servo_6; /* RightArm */
-Servo Servo_7; /* LeftArm */
-Servo Servo_5; /* RightFoot */
-Servo Servo_4; /* LeftFoot */
+#define RightArm 6 // Guardando MinioBot da davanti
+#define LeftArm 7 // Guardando MinioBot da davanti
+Servo Servo_6; /* Braccio destro */
+Servo Servo_7; /* Braccio sinistro */
+Servo Servo_5; /* Piede destro */
+Servo Servo_4; /* Piede sinistro */
 ```
 Also there are many variables tied to many important functions. They are:
 ```C++
@@ -140,14 +140,13 @@ int i = 0; // used to stop the fly function while its value is equal to 0.
 char message; // used to memorize the message sent by the user, wich'll trigger one of the switch cases situated in the loop function.
 ```
 <h1> Functions </h1>
-In this code, there are two types of functions:
+In questo codice, ci sono due tipi di funzioni:
+- <em> MinioBot All Moves </em>: quelle che muovono i servo di MinioBot.
 
-- <em> MinioBot All Moves </em>: functions that move MinioBot's servos.
-
-- <em> Melodies </em>: functions that allow the Buzzer to play melodies.
+- <em> Melodies </em>: quelle che permettono al Buzzer di riprodurre melodie.
 <h2> MinioBot All Moves </h2>
 
-<code>startArms()</code>: sets both arms in a neutral position.
+<code>startArms()</code>: mette entrambe le braccia a una posizione neutrale.
 ```C++
 ///////////////////////////////////////////////////////////////////
 //-- MinioBot All Moves -----------------------------------------//
@@ -158,7 +157,7 @@ void startArms(){
 }
 ```
 
-<code>move_RightArm()</code>: allows to move the right arm's servo based on its position (when its down it goes up, when it's up it goes down).
+<code>move_RightArm()</code>: alza/abbassa il braccio destro.
 ```C++
 void move_RigthArm() {
   if(Servo_6.read() == 0){
@@ -170,7 +169,7 @@ void move_RigthArm() {
   }
 }
 ```
-<code>move_LeftArm()</code>: allows to move the left arm's servo based on its position (when its down it goes up, when it's up it goes down).
+<code>move_LeftArm()</code>: alza/abbassa il braccio sinistro.
 ```C++
 void move_LeftArm() {
   if(Servo_7.read() == 180){
@@ -182,7 +181,7 @@ void move_LeftArm() {
   }
 }
 ```
-<code>bothArms()</code>: allows to move both arms' servos based on its position (when the're down they go up, when they're up they go down).
+<code>bothArms()</code>: alza/abbassa entrambe le braccia.
 ```C++
 void bothArms() {
   if(Servo_6.read() == 0 && Servo_7.read() == 180){
@@ -194,7 +193,7 @@ void bothArms() {
   }
 }
 ```
-<code>walkForward_si()</code>: allows MinioBot to go forward while walkForward is true.
+<code>walkForward_si()</code>: MinioBot cammina mentre walkForward è vera.
 ```C++
 void walkForward_si(){
   while(walkForward = true){
@@ -206,7 +205,7 @@ void walkForward_si(){
   }
 }
 ```
-<code>walkBackwards_si()</code>: allows MinioBot to go backwards while walkBackwards is true.
+<code>walkBackwards_si()</code>: MinioBot cammina all'indietro mentre walkBackwards è vera.
 ```C++
 void walkBackwards_si(){
   while(walkBackwards = true){
@@ -218,19 +217,19 @@ void walkBackwards_si(){
   }
 }
 ```
-<code>TurnLeft()</code>: allows MinioBot to turn left making 5 steps.
+<code>TurnLeft()</code>: MinioBot gira a sinistra facendo 5 passi.
 ```C++
 void TurnLeft(){
   Otto.turn(5, 750, 1);
 }
 ```
-<code>TurnRight()</code>: allows MinioBot to turn left making 5 steps.
+<code>TurnRight()</code>: MinioBot gira a destra facendo 5 passi.
 ```C++
 void TurnRight(){
   Otto.turn(5, 750, -1);
 }
 ```
-<code>fly()</code>: allows Miniobot to "fly" (he doesn't fly, he just moves his arms up and down simultaneously :p).
+<code>fly()</code>: MinioBot "vola" (non vola per davvero, alza e abbassa le braccia in simultanea :p).
 ```C++
 void fly(){
   for (i=0; i<10;i++){
