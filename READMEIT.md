@@ -129,7 +129,7 @@ Servo Servo_7; /* Braccio sinistro */
 Servo Servo_5; /* Piede destro */
 Servo Servo_4; /* Piede sinistro */
 ```
-Also there are many variables tied to many important functions. They are:
+Ci sono anche molte variabili legate a funzioni importanti; esse sono:
 ```C++
 bool walkForward = false;
 bool walkBackwards = false; // they're tied to the functions walkForward_si and walkBackwards_si; they're used to stop the walk functions while they're false.
@@ -246,7 +246,7 @@ void fly(){
 ```
 <h2> Melodies </h2>
 
-The code written to make the Buzzer play these melodies is from <a href="https://github.com/robsoncouto/arduino-songs"> this </a> repository, but it has been readapted to work with Miniobot. Here's the code:
+Il codice scritto per le note delle melodie è preso da <a href="https://github.com/robsoncouto/arduino-songs"> questa </a> repository, ma è stato riadattato per funzionare con MinioBot. Ecco il codice:
 ```C++
 ///////////////////////////////////////////////////////////////////
 //-- Melodies ---------------------------------------------------//
@@ -389,7 +389,7 @@ void rickroll(){
 }
 ```
 <h1> Setup </h1>
-In <code>setup()</code> sensors and pins get initialized with certain parameters.
+Nel <code>setup()</code> i sensori e i pin vengono inizializzati con parametri specifici.
 
 
 ```C++
@@ -398,31 +398,31 @@ In <code>setup()</code> sensors and pins get initialized with certain parameters
 ///////////////////////////////////////////////////////////////////
 
 void setup() {
-  pinMode(Piezo, OUTPUT); // pin 13 gets initialized as "OUTPUT", because a Buzzer playing "outputs" sounds
-  Serial.begin(9600); // sets serial communication between digital pin at 9600 baud rate
-  bluetooth.begin(9600); // sets serial communication beetween HC-06 and user's device at 9600 baud rate
+  pinMode(Piezo, OUTPUT); // il pin 13 viene inizializzato come "OUTPUT", perché il Buzzer ha come "OUTPUT" i suoni
+  Serial.begin(9600); // setta la comunicazione seriale a 9600 baud rate
+  bluetooth.begin(9600); // setta la comunicazione seriale tra l'HC06 e la porta seriale a 9600 baud rate
   Servo_6.attach(RightArm);
-  Servo_7.attach(LeftArm); // initializes RightArm and LeftArm using a function from <Servo.h>
+  Servo_7.attach(LeftArm); // Inizializza RightArm e LeftArm utilizzando una funzione della libreria <Servo.h>
   Otto.init(LeftLeg, RightLeg, LeftFoot, RightFoot, true, Piezo);  
-  startArms(); // sets arms in a neutral position
-  Otto.sing(S_connection); // makes the Buzzer play the connection sound (beep)
-  Otto.home(); // sets legs and foots in a neutral position
+  startArms(); // setta le braccia in una posizione neutrale
+  Otto.sing(S_connection); // fa riprodurre un "beep" al Buzzer
+  Otto.home(); // setta piedi e gambe in una posizione neutrale
 }
 ```
 <h1> Loop </h1>
-Every time the function <code>Loop()</code> gets executed, the variable <em> message </em> (wich contains the message that the user sent) passes through the switch, if bluetooth is avaible; certain chars can trigger cases of the switch and in these are called the functions that have been declared earlier.
-It's important to say that the <code>Loop()</code> function is the core of this code: without it, MinioBot can't do a thing (except for the setup initializations).
+Ogni volta che la funzione <code>Loop()</code> viene eseguita, la variabile <em> message </em> (che contiene il messaggio che l'utente ha inviato) passa nello switch, se il bluetooth è disponibile; alcuni char possono attivare dei case dello switch e in questi sono chiamate le funzioni dichiarate in precedenza.
+È importante dire che la funzione <code>Loop()</code> è il cuore di questo codice: senza, Mioniobot non può fare nulla (oltre alle inizializzazioni del setup).
 
 ```C++
 ///////////////////////////////////////////////////////////////////
 //-- Principal Loop ---------------------------------------------//
 ///////////////////////////////////////////////////////////////////
 void loop(){
-  Serial.println("Start"); // to notice, using the serial monitor, when the loop() function gets executed
+  Serial.println("Start"); // per notare, dal monitor seriale, quando la funzione Loop() viene eseguita
   if (bluetooth.available()) {
-    message = char(bluetooth.read()); // the data memorized in the variable "message" gets pverwritten with the char that the user sent using Bluetooth
+    message = char(bluetooth.read()); // i dati memorizzati nella variabile "message" vengono sovrascritti dai char mandati dall'utenti
     Serial.println("message="); 
-    Serial.println(message); // prints what's contained in the variable "message"
+    Serial.println(message); // stampa cosa c'è memorizzato nella variabile "message"
     switch(message)
     {
       case 'a':
