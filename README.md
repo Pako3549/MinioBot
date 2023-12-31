@@ -399,7 +399,7 @@ In <code>setup()</code> sensors and pins get initialized with certain parameters
 ///////////////////////////////////////////////////////////////////
 
 void setup() {
-  pinMode(Piezo, OUTPUT); // pin 13 gets initialized as "OUTPUT", because a Buzzer playing "outputs" sounds
+  pinMode(Piezo, OUTPUT); // pin 13 gets initialized as "OUTPUT", because a Buzzer has as an "OUTPUT" sounds
   Serial.begin(9600); // sets serial communication between digital pin at 9600 baud rate
   bluetooth.begin(9600); // sets serial communication beetween HC-06 and user's device at 9600 baud rate
   Servo_6.attach(RightArm);
