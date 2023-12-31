@@ -411,7 +411,7 @@ void setup() {
 }
 ```
 <h1> Loop </h1>
-Every time the function <code>Loop()</code> gets executed, the variable <em> message </em> (wich contains the message that the user sent) passes through the switch, if bluetooth is avaible; certain chars can trigger cases of the switch and in these are called the functions that have been declared earlier.
+Every time the function <code>Loop()</code> gets executed, the variable <em> message </em> (which contains the message that the user sent) passes through the switch, if bluetooth is avaible; certain chars can trigger cases of the switch and in these are called the functions that have been declared earlier.
 It's important to say that the <code>Loop()</code> function is the core of this code: without it, MinioBot can't do a thing (except for the setup initializations).
 
 ```C++
@@ -421,7 +421,7 @@ It's important to say that the <code>Loop()</code> function is the core of this 
 void loop(){
   Serial.println("Start"); // to notice, using the serial monitor, when the loop() function gets executed
   if (bluetooth.available()) {
-    message = char(bluetooth.read()); // the data memorized in the variable "message" gets pverwritten with the char that the user sent using Bluetooth
+    message = char(bluetooth.read()); // the data memorized in the variable "message" gets overwritten with the char that the user sent using Bluetooth
     Serial.println("message="); 
     Serial.println(message); // prints what's contained in the variable "message"
     switch(message)
