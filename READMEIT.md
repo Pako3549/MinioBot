@@ -4,6 +4,8 @@ Per far funzionare questo codice, devi installare la libreria <a href="https://g
 Dopo aver installato il file zip, implementalo nell'IDE di Arduino (Sketch --> Include Libreria --> Includi Libreria da file .zip).
 
 Alla fine, apri il file .ino: quando lo aprirai, Arduino ti chiederà di creare una cartella dedicata, ovviamente concediglielo.
+
+<strong> PS: </strong> per far funzionare MinioBot mandandogli messaggi col Bluetooth si può utilizzare un Terminale Bluetooth Seriale (l'app usata da noi è <a href="https://www.microsoft.com/store/productId/9WZDNCRDFST8?ocid=pdpshare"> questa</a>, ma ne abbiamo sviluppata un'altra più user-friendly, ma le librerie per il bluetooth non sono compatibili col modulo HC06 perché non è un dispositivo BLE). 
 <h1> Librerie, Variabili, Macro e Servomotori </h1>
 Sono state incluse 3 librerie:
 
