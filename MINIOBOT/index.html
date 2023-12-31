@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinioBot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="logo">
+        <a href="https://www.isismarcianise.edu.it/ferraris_buccini/"><img src="https://www.isismarcianise.edu.it/ferraris_buccini/wp-content/uploads/2021/07/logo_90x101.png" alt="logo"></a>
+    </div>
+
+    <div class="home">
+        <h1 class="title">MinioBot</h1>
+        <img class="bot-img p-rel-0" src="img/minions-imgs/minions.svg" alt="bot-icons">
+
+        <div class="btns">
+            <button class="connect-btn" onclick="location.href='bot.html'">CONNECT</button>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a onclick="toggleLangPopup()"><img src="img/icons/globe.svg" alt=""></a>
+    </div>
+
+    <div class="lang-popup" style="display: none;">
+        <div class="closeBtn" onclick="toggleLangPopup()"></div>
+        <div class="popup">
+            <h3 onclick="toggleLangPopup()">Italian</h3>
+            <hr>
+            <h3 onclick="toggleLangPopup()">English</h3>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>

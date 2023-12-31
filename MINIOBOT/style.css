@@ -1,0 +1,141 @@
+html{
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+button{
+    font-size: 20px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    width: 100%;
+}
+
+a{display: flex;}
+hr{width: 100%; height: 2px; margin: 0;}
+.p-rel-0{position: relative !important; top: 0 !important;}
+
+
+
+/*--------------*/
+/*     LOGO     */
+.logo, .back-arrow{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+}
+.logo img{width: 40px; padding: 10px; border-radius: 5px; cursor: pointer;}
+.back-arrow img{width: 30px;}
+
+
+
+/*---------------*/
+/*     HOME     */
+.home{
+    margin-top: 13vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+.title{font-size: 40px; text-align: center; margin-bottom: 0;}
+.connect-btn{width: 250px;}
+.subtitle{font-size: 25px; text-align: center; margin-bottom: 10px;}
+.white-filler{width: 100%; height: 100px; position: fixed; top: 0; background-color: white;}
+.bot-img, .walk-div{
+    position: fixed;
+    top: 7vh;
+    height: 45vh;
+    width: 100%;
+    background-image: url(img/minions-imgs/minions.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg{display: none; position: absolute; bottom: -60px; background-color: white; padding: 5px 0 15px 0; width: 100%; text-align: center;}
+
+.all-btns{margin-top: 45vh; display: flex; flex-direction: column; align-items: center;}
+.main-btns{display: flex; flex-direction: column; align-items: center; width: 90%;}
+.btns{display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap; width: 75vw;}
+.row{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+/*-----------------------*/
+/*     BOTTOM NAVBAR     */
+.bottom-nav{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bottom-nav img, .back-arrow img{width: 35px; padding: 7px; border-radius: 10px; cursor: pointer;}
+a img:hover{background-color: #eee;}
+
+
+
+/*------------------------*/
+/*     LANGUAGE POPUP     */
+.lang-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    backdrop-filter: blur(20px);
+    z-index: 5;
+}
+.popup{
+    width: 75vw;
+    height: 20vh;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+.popup h3{margin: 23px;}
+.popup h3:hover{color: #E6332A; cursor: pointer;}
+
+.closeBtn{width: 30px; height: 30px; position: absolute; top: 25px; right: 25px; background-image: url(img/icons/close.svg); cursor: pointer;}
+.closeBtn:hover{background-image: url(img/icons/close-red.svg);}
+
+
+
+
+/*---------------------*/
+/*     MEDIA QUERY     */
+@media screen and (max-width: 350px) {
+    .row{flex-wrap: wrap;}
+}
+
+@media screen and (max-width: 600px){
+    .connect-btn{width: 100%;}
+}

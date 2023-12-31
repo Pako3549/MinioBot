@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinioBot - Connected</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="back-arrow">
+        <a href="index.html"><img src="img/icons/left-arrow.svg" alt="back-arrow"></a>
+    </div>
+
+    <div class="home">
+        <!-- <img class="bot-img" src="img/minions.svg" alt="bot-icon"> -->
+        <span class="white-filler"></span> <!-- DI RIEMPIMENTO IN ALTO PER LO SCORRIMENTO -->
+        <div class="bot-img">
+              <p class="msg"></p>
+        </div>
+
+        <!-- <div class="walk-div"></div> -->
+
+        <div class="all-btns">
+            
+            <div class="arms main-btns">
+                <h2 class="subtitle">ARMS</h2>
+                <div class="btns">
+                    <div class="row">
+                        <button onclick="changeBotImg('url(img/minions-imgs/arm-sx.svg)', 'Raising left arm...')">SX ARM</button>
+                        <button onclick="changeBotImg('url(img/minions-imgs/arm-dx.svg)', 'Raising right arm...')">DX ARM</button>
+                    </div>
+                    <button onclick="changeBotImg('url(img/minions-imgs/both-arms.svg)', 'Raising both arms...')">BOTH ARMS</button>
+                </div>
+            </div>
+    
+            <div class="legs main-btns">
+                <h2 class="subtitle">LEGS</h2>
+                <div class="btns">
+                    <div class="row">
+                        <button onclick="changeBotImg('url(img/minions-imgs/sx-leg.svg)', 'Raising left leg...')">SX LEG</button>
+                        <button onclick="changeBotImg('url(img/minions-imgs/dx-leg.svg)', 'Raising right leg...')">DX LEG</button>
+                    </div>
+                    <button>BOTH LEGS</button>
+                </div>
+            </div>
+    
+            <div class="movements main-btns">
+                <h2 class="subtitle">MOVEMENTS</h2>
+                <div class="btns">
+                    <div class="row">
+                        <button class="walk_forward" onclick="walk_forward()">WALK FORWARD</button>
+                        <button>WALK BACK</button>
+                    </div>
+                    <div class="row">
+                        <button>SIDE WALK (SX)</button>
+                        <button>SIDE WALK (DX)</button>
+                    </div>
+                    <button>MOONWALK</button>
+                    <div class="row">
+                        <button onclick="changeBotImg('url(img/minions-imgs/turn-sx.svg)', 'Turning left...')">TURN SX</button>
+                        <button onclick="changeBotImg('url(img/minions-imgs/turn-dx.svg)', 'Turning right...')">TURN DX</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="movements main-btns">
+                <h2 class="subtitle">OTHERS</h2>
+                <div class="btns">
+                    <button class="ultraSoundModeBtn" onclick="toggleUltraSoundMode()">ULTRASOUND MODE: OFF</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="main-v2.js"></script>
+</body>
+</html>
