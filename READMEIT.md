@@ -141,7 +141,7 @@ int txPin = 12; // they're used to initialize rx and tx pin used by the bluetoot
 int i = 0; // used to stop the fly function while its value is equal to 0.
 char message; // used to memorize the message sent by the user, wich'll trigger one of the switch cases situated in the loop function.
 ```
-<h1> Functions </h1>
+<h1> Funzioni </h1>
 In questo codice, ci sono due tipi di funzioni:
 - <em> MinioBot All Moves </em>: quelle che muovono i servo di MinioBot.
 
